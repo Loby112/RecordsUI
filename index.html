@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
-    
+
 </head>
+
 <body>
     <div id="app">
         <div class="row">
             <div class="col-sm-6">
                 <h2>Get all records</h2>
-                <button v-on:click="getAllRecords" class="btn btn-outline-primary">Get all</button>
-                <ul v-if="Records.length">
-                    <li v-for="record in Records">
-                        <p>Title: {{record.title}}</p>
-                    </li>
-
-                </ul>
+                <button v-on:click="getAllRecords" class="btn btn-dark">Get all</button>
+                <table class="table table-dark table-striped" v-if="Records.length">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Artist</th>
+                            <th>Publication Year</th>
+                            <th>Duration (sek)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="record in Records">
+                            <td> {{record.title}} </td>
+                              <td> {{record.artist}} </td>
+                              <td> {{record.publicationYear}} </td>
+                                <td>{{record.duration}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="col-sm-6">
 
@@ -31,3 +45,20 @@
     </div>
 </body>
 </html>
+
+<style>
+    button{
+        margin: 5px;
+    }
+    h1, h2, h3, h4, h5{
+        margin: 5px;
+    }
+
+    table{
+        margin: 10px;
+    }
+
+    body{
+        background: linear-gradient(rgb(121, 187, 245),rgb(54, 157, 247));
+    }
+</style>
